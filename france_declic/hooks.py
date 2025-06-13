@@ -11,7 +11,7 @@ app_license = "agpl-3.0"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/france_declic/css/france_declic.css"
-# app_include_js = "/assets/france_declic/js/france_declic.js"
+app_include_js = "/assets/france_declic/js/contact_directory.bundle.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/france_declic/css/france_declic.css"

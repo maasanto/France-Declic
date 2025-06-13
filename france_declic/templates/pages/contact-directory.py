@@ -16,8 +16,14 @@ def get_context(context):
 
 @frappe.whitelist()
 def get_workshop_types():
-	"""Get all unique workshop types from Hosted Workshop doctype"""
-	return frappe.get_all("Workshop Type")
+	"""Get all unique workshop types from Workshop Type doctype"""
+	workshop_types = frappe.get_all(
+		"Workshop Type",
+		fields=["name"],
+		order_by="name"
+	)
+	# Return just the names as a list of strings
+	return [workshop.name for workshop in workshop_types if workshop.name]
 
 
 @frappe.whitelist()
@@ -32,7 +38,7 @@ def get_contacts(filters=None):
 	
 	# Workshop filter using child table
 	if filters.get("workshop_type"):
-		query_filters.append(["custom_hosted_workshops.workshop", "=", filters.get("workshop_type")])
+		query_filters.append(["Hosted Workshop", "Workshop", "=", filters.get("workshop_type")])
 
 	search_term = filters.get("search", "")
 

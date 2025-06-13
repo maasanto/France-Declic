@@ -64,9 +64,12 @@ class ContactDirectory {
 
 	async add_filter_workshop() {
 		// Get workshop types first
-		this.workshop_types = await frappe.call({
+		const workshop_response = await frappe.call({
 			method: "contact-directory.get_workshop_types"
-		}).then(r => r.message || [])
+		});
+		
+		// Backend now returns a simple list of strings
+		this.workshop_types = workshop_response.message || [];
 
 		const workshop_wrapper = document.createElement("div")
 		workshop_wrapper.setAttribute("class", "workshop-filter")
@@ -276,7 +279,7 @@ class ContactDirectorySidebar {
 						</div>
 						<div class="col-6">
 							<div class="h4 mb-0">${this.stats.total_workshops || 0}</div>
-							<small class="text-muted">${__('Workshops')}</small>
+							<small class="text-muted">${__('Workshop Records')}</small>
 						</div>
 					</div>
 				</div>

@@ -206,22 +206,11 @@
 				</div>
 				${workshops_html ? `
 					<div class="contact-workshops">
-						<div class="workshops-header">
-							<svg class="workshops-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="8" r="7"></circle>
-								<polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline>
-							</svg>
-							Workshops
-						</div>
 						${workshops_html}
 					</div>
 				` : `
 					<div class="contact-workshops">
 						<div class="no-workshops">
-							<svg class="no-workshops-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="12" r="10"></circle>
-								<path d="m9 9 3 3 3-3"></path>
-							</svg>
 							No workshops listed
 						</div>
 					</div>
@@ -304,4 +293,4 @@
     new ContactDirectorySidebar(document.getElementById("contact-directory-sidebar"));
   });
 })();
-//# sourceMappingURL=contact_directory.bundle.IMQROLMU.js.map
+//# sourceMappingURL=contact_directory.bundle.EPRX7KUD.js.map

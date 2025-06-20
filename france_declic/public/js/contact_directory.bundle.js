@@ -65,7 +65,7 @@ class ContactDirectory {
 	async add_filter_workshop() {
 		// Get workshop types first
 		const workshop_response = await frappe.call({
-			method: "contact-directory.get_workshop_types"
+			method: "france_declic.templates.pages.contact-directory.get_workshop_types"
 		});
 		
 		// Backend now returns a simple list of strings
@@ -128,7 +128,7 @@ class ContactDirectory {
 
 		try {
 			const response = await frappe.call({
-				method: 'contact-directory.get_contacts',
+				method: 'france_declic.templates.pages.contact-directory.get_contacts',
 				args: {
 					filters: this.filter_values
 				}
@@ -261,7 +261,7 @@ class ContactDirectorySidebar {
 
 	get_stats() {
 		return frappe.call({
-			method: "contact-directory.get_contact_stats"
+			method: "france_declic.templates.pages.contact-directory.get_contact_stats"
 		}).then(r => {
 			this.stats = r.message || {};
 		})

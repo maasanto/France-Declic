@@ -56,9 +56,10 @@
       this.search_field.addEventListener("change", search_now);
     }
     async add_filter_workshop() {
-      this.workshop_types = await frappe.call({
+      const workshop_response = await frappe.call({
         method: "france_declic.templates.pages.contact-directory.get_workshop_types"
-      }).then((r) => r.message || []);
+      });
+      this.workshop_types = workshop_response.message || [];
       const workshop_wrapper = document.createElement("div");
       workshop_wrapper.setAttribute("class", "workshop-filter");
       this.toolbar.appendChild(workshop_wrapper);
@@ -152,7 +153,7 @@
     }
     render_contact_card(contact) {
       var _a;
-      const workshops_html = ((_a = contact.workshops) == null ? void 0 : _a.map((workshop) => `<span class="workshop-badge">${frappe.utils.escape_html(workshop.name)}</span>`).join("")) || "";
+      const workshops_html = ((_a = contact.workshops) == null ? void 0 : _a.map((workshop) => `<span class="workshop-badge">${frappe.utils.escape_html(workshop.workshop)}</span>`).join("")) || "";
       const phone_html = contact.phone ? `<div><strong>${__("Phone")}:</strong> ${frappe.utils.escape_html(contact.phone)}</div>` : "";
       return `
 			<div class="contact-card">
@@ -238,7 +239,7 @@
 						</div>
 						<div class="col-6">
 							<div class="h4 mb-0">${this.stats.total_workshops || 0}</div>
-							<small class="text-muted">${__("Workshops")}</small>
+							<small class="text-muted">${__("Workshop Records")}</small>
 						</div>
 					</div>
 				</div>
@@ -253,4 +254,4 @@
     new ContactDirectorySidebar(document.getElementById("contact-directory-sidebar"));
   });
 })();
-//# sourceMappingURL=contact_directory.bundle.CB32QEDA.js.map
+//# sourceMappingURL=contact_directory.bundle.FUNQAGQL.js.map

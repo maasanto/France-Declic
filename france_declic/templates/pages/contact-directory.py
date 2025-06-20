@@ -18,8 +18,9 @@ def get_context(context):
 def get_workshop_types():
 	"""Get all unique workshop types from Workshop Type doctype"""
 	workshop_types = frappe.get_all(
-		"Workshop Type",
+		"Workshop Type", 
 		fields=["name"],
+		filters={"name": ["!=", ""]},  # Filter out empty names
 		order_by="name"
 	)
 	# Return just the names as a list of strings
@@ -36,9 +37,9 @@ def get_contacts(filters=None):
 
 	query_filters = []
 	
-	# Workshop filter using child table
+	# Workshop filter using child table - correct syntax
 	if filters.get("workshop_type"):
-		query_filters.append(["Hosted Workshop", "Workshop", "=", filters.get("workshop_type")])
+		query_filters.append(["Hosted Workshop", "workshop", "=", filters.get("workshop_type")])
 
 	search_term = filters.get("search", "")
 
@@ -54,7 +55,7 @@ def get_contacts(filters=None):
 	contacts = frappe.get_all(
 		"Contact",
 		filters=query_filters,
-		fields=["name", "first_name", "last_name", "email_id", "phone", "mobile_no"],
+		fields=["name", "first_name", "last_name", "email_id", "phone", "mobile_no", "custom_telegram_alias", "custom_pincode", "custom_city"],
 		or_filters=or_filters,
 		order_by="first_name, last_name"
 	)

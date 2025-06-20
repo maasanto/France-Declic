@@ -187,28 +187,56 @@ class ContactDirectory {
 			`<span class="workshop-badge">${frappe.utils.escape_html(workshop.workshop)}</span>`
 		).join('') || '';
 
-		const phone_html = contact.phone ? 
-			`<div><strong>${__('Phone')}:</strong> ${frappe.utils.escape_html(contact.phone)}</div>` : '';
+		// Email info with icon
+		const email_html = contact.email_id ? `
+			<div class="contact-info-item">
+				<svg class="contact-info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+				<a href="mailto:${frappe.utils.escape_html(contact.email_id)}">${frappe.utils.escape_html(contact.email_id)}</a>
+			</div>
+		` : '';
+
+		// Phone info with icon
+		const phone_html = contact.phone ? `
+			<div class="contact-info-item">
+				<svg class="contact-info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+				</svg>
+				<span>${frappe.utils.escape_html(contact.phone)}</span>
+			</div>
+		` : '';
 
 		return `
 			<div class="contact-card">
 				<div class="contact-name">
 					${frappe.utils.escape_html(contact.full_name || 'Unknown')}
 				</div>
-				<div class="contact-contact">
-					<div><strong>${__('Email')}:</strong> 
-						<a href="mailto:${frappe.utils.escape_html(contact.email_id || '')}">${frappe.utils.escape_html(contact.email_id || 'N/A')}</a>
-					</div>
+				<div class="contact-info">
+					${email_html}
 					${phone_html}
 				</div>
 				${workshops_html ? `
 					<div class="contact-workshops">
-						<div class="mb-2"><strong>${__('Workshop Qualifications')}:</strong></div>
+						<div class="workshops-header">
+							<svg class="workshops-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="8" r="7"></circle>
+								<polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline>
+							</svg>
+							Workshops
+						</div>
 						${workshops_html}
 					</div>
 				` : `
 					<div class="contact-workshops">
-						<div class="text-muted">${__('No workshop qualifications listed')}</div>
+						<div class="no-workshops">
+							<svg class="no-workshops-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<path d="m9 9 3 3 3-3"></path>
+							</svg>
+							No workshops listed
+						</div>
 					</div>
 				`}
 			</div>

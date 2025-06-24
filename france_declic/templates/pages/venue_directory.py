@@ -31,10 +31,40 @@ def get_context(context):
             "custom_access_for_person_with_reduced_mobility",
             "custom_telegram_channel",
             "description",
+            "custom_hosted_workshops",
             "modified"
         ],
         order_by="modified desc"
     )
+    
+    # Extract city from address and get contacts separately
+    for venue in venues:
+        # Get city from linked Address document
+        if venue.get("published_address"):
+            try:
+                # If published_address is a Link field to Address doctype
+                address_doc = frappe.get_doc("Address", venue["published_address"])
+                venue["city"] = address_doc.get("city") or ""
+            except:
+                # Fallback: if it's just text, extract from comma-separated format
+                address_parts = venue["published_address"].split(",")
+                venue["city"] = address_parts[-1].strip() if address_parts else venue["published_address"]
+        else:
+            venue["city"] = ""
+        
+        # Get point of contact from child table
+        try:
+            contacts = frappe.get_all(
+                "Booking Venue Contact",
+                filters={"parent": venue.name},
+                fields=["contact"],
+                order_by="idx"
+            )
+            venue["contacts_list"] = [c.contact for c in contacts] if contacts else []
+            venue["primary_contact"] = contacts[0].contact if contacts else ""
+        except:
+            venue["contacts_list"] = []
+            venue["primary_contact"] = ""
     
     context.venues = venues
     context.title = _("Venue Directory")
@@ -46,3 +76,30 @@ def get_context(context):
     ]
     
     return context
+
+
+@frappe.whitelist()
+def get_venue_details(venue_name):
+    """
+    Get detailed venue information for the modal popup
+    """
+    venue = frappe.get_doc("Booking Venue", venue_name)
+    
+    # Get full address using Frappe's built-in address formatting
+    full_address = ""
+    if venue.get("published_address"):
+        try:
+            # Use Frappe's get_address_display function
+            from frappe.contacts.doctype.address.address import get_address_display
+            full_address = get_address_display(venue.published_address)
+        except:
+            # Fallback to the linked address name if formatting fails
+            full_address = venue.published_address
+    
+    return {
+        "name": venue.name,
+        "label": venue.get("label") or venue.name,
+        "description": venue.get("description"),
+        "full_address": full_address,
+        "custom_telegram_channel": venue.get("custom_telegram_channel")
+    }

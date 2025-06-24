@@ -34,7 +34,7 @@ class ContactDirectory {
 	}
 
 	add_filter_search() {
-		const search_label = __("Search contacts...")
+		const search_label = __("Search contacts (name, email, phone, city, etc.)...")
 		const search = $(this.toolbar).append(`
 			<div class="search-input">
 				<input type="search" class="form-control"

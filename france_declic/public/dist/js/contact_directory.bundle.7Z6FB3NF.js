@@ -29,7 +29,7 @@
       await this.add_filter_workshop();
     }
     add_filter_search() {
-      const search_label = __("Search contacts...");
+      const search_label = __("Search contacts (name, email, phone, city, etc.)...");
       const search = $(this.toolbar).append(`
 			<div class="search-input">
 				<input type="search" class="form-control"
@@ -293,4 +293,4 @@
     new ContactDirectorySidebar(document.getElementById("contact-directory-sidebar"));
   });
 })();
-//# sourceMappingURL=contact_directory.bundle.EPRX7KUD.js.map
+//# sourceMappingURL=contact_directory.bundle.7Z6FB3NF.js.map

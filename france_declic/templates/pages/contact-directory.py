@@ -49,7 +49,12 @@ def get_contacts(filters=None):
 		or_filters = [
 			["first_name", "like", f"%{search_term}%"],
 			["last_name", "like", f"%{search_term}%"],
-			["email_id", "like", f"%{search_term}%"]
+			["email_id", "like", f"%{search_term}%"],
+			["phone", "like", f"%{search_term}%"],
+			["mobile_no", "like", f"%{search_term}%"],
+			["custom_telegram_alias", "like", f"%{search_term}%"],
+			["custom_city", "like", f"%{search_term}%"],
+			["custom_pincode", "like", f"%{search_term}%"]
 		]
 
 	contacts = frappe.get_all(

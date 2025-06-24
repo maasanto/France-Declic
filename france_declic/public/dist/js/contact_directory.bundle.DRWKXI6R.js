@@ -57,7 +57,7 @@
     }
     async add_filter_workshop() {
       const workshop_response = await frappe.call({
-        method: "france_declic.templates.pages.contact-directory.get_workshop_types"
+        method: "france_declic.templates.pages.contact_directory.get_workshop_types"
       });
       this.workshop_types = workshop_response.message || [];
       const workshop_wrapper = document.createElement("div");
@@ -108,7 +108,7 @@
 		`;
       try {
         const response = await frappe.call({
-          method: "france_declic.templates.pages.contact-directory.get_contacts",
+          method: "france_declic.templates.pages.contact_directory.get_contacts",
           args: {
             filters: this.filter_values
           }
@@ -261,7 +261,7 @@
     }
     get_stats() {
       return frappe.call({
-        method: "france_declic.templates.pages.contact-directory.get_contact_stats"
+        method: "france_declic.templates.pages.contact_directory.get_contact_stats"
       }).then((r) => {
         this.stats = r.message || {};
       });
@@ -293,4 +293,4 @@
     new ContactDirectorySidebar(document.getElementById("contact-directory-sidebar"));
   });
 })();
-//# sourceMappingURL=contact_directory.bundle.7Z6FB3NF.js.map
+//# sourceMappingURL=contact_directory.bundle.DRWKXI6R.js.map

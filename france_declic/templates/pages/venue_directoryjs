@@ -1,0 +1,19 @@
+/**
+ * Simple Venue Directory JavaScript
+ * No complex interactions - just basic functionality
+ */
+
+$(document).ready(function() {
+    console.log("Venue directory loaded");
+    console.log("Found", $(".venue-table tbody tr").length, "venues");
+    
+    // Optional: Add hover effect to table rows
+    $('.venue-table tbody tr').hover(
+        function() { 
+            $(this).addClass('table-active'); 
+        },
+        function() { 
+            $(this).removeClass('table-active'); 
+        }
+    );
+});

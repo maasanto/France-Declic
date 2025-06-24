@@ -16,6 +16,7 @@ def get_context(context):
     
     context.no_cache = 1
     context.show_sidebar = True
+    context.full_width = True
     
     # Get all venues with specific fields - no filtering
     venues = frappe.get_all(
@@ -68,13 +69,7 @@ def get_context(context):
     
     context.venues = venues
     context.title = _("Venue Directory")
-    
-    # Add page breadcrumbs
-    context.parents = [
-        {"title": _("Home"), "route": "/"},
-        {"title": _("Venue Directory"), "route": "/venue-directory"}
-    ]
-    
+
     return context
 
 

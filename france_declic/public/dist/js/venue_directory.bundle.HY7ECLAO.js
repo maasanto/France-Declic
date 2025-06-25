@@ -51,29 +51,26 @@
       $("#telegramLink").hide();
       const modalContent = `
             <div class="venue-details">
-                <div class="detail-group">
-                    <h5>${venue.label}</h5>
-                </div>
                 
                 ${venue.description ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-info-circle text-primary"></i> Proc\xE9dure \xE0 suivre</h6>
+                        <h6><i class="fa fa-info-circle text-primary"></i>Proc\xE9dure \xE0 suivre</h6>
                         <div class="description-content">
-                            ${venue.description}
+                            <p>${venue.description}</p>
                         </div>
                     </div>
                 ` : ""}
                 
                 ${venue.full_address ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-map-marker-alt text-primary"></i> Adresse</h6>
+                        <h6><i class="fa fa-map-marker-alt text-primary"></i>Adresse</h6>
                         <p>${venue.full_address}</p>
                     </div>
                 ` : ""}
                 
                 ${venue.custom_telegram_channel ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-at text-primary"></i> Telegram</h6>
+                        <h6><i class="fa fa-at text-primary"></i>Telegram</h6>
                         <p><a href="${venue.custom_telegram_channel}" target="_blank" class="telegram-link">${venue.custom_telegram_channel}</a></p>
                     </div>
                 ` : ""}
@@ -105,7 +102,6 @@
                 .description-content {
                     color: #6c757d;
                     line-height: 1.6;
-                    padding: 15px;
                     background: none;
                     border: none;
                 }
@@ -117,7 +113,7 @@
                     text-decoration: underline;
                 }
                 .venue-details {
-                    padding: 10px 0;
+                    padding: 10px;
                 }
             </style>
         `;
@@ -133,4 +129,4 @@
     }
   });
 })();
-//# sourceMappingURL=venue_directory.bundle.3HOAQMBY.js.map
+//# sourceMappingURL=venue_directory.bundle.HY7ECLAO.js.map

@@ -14,7 +14,7 @@ app_license = "agpl-3.0"
 app_include_js = "/assets/france_declic/js/contact_directory.bundle.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/france_declic/css/france_declic.css"
+web_include_css = "assets/france_declic/css/event_portal.css"
 web_include_js = "/assets/france_declic/js/event_portal_extended.js"
 
 # include custom scss in every website theme (without file extension ".scss")

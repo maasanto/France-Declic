@@ -30,7 +30,6 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 
 	// Override the onEventClick method with enhanced functionality
 	onEventClick(event) {
-		console.log("click!")
 		// For now, use hardcoded data - replace with API call later
 		const mockEventData = this.getMockEventData(event);
 		this.showEnhancedModal(event, mockEventData);
@@ -181,17 +180,17 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 			const availableSpots = slot.max_capacity ? slot.max_capacity - slot.registered_count : null;
 			
 			return `
-				<div class="event-slot-card border rounded p-3 mb-3 ${isFullyBooked ? 'bg-light' : ''}">
+				<div class="event-slot-card border rounded ${isFullyBooked ? 'slot-full' : ''}">
 					<div class="d-flex justify-content-between align-items-start">
 						<div class="slot-info flex-grow-1">
-							<h6 class="slot-title mb-1">${slot.slot_name || __("Time Slot")}</h6>
-							<div class="slot-time text-muted mb-2">
+							<h6 class="slot-title">${slot.slot_name || __("Time Slot")}</h6>
+							<div class="slot-time text-muted">
 								<i class="fa fa-clock"></i>
 								${frappe.datetime.str_to_user(slot.start_time)} - 
 								${frappe.datetime.str_to_user(slot.end_time)}
 							</div>
 							${slot.description ? `
-								<div class="slot-description text-muted small mb-2">
+								<div class="slot-description text-muted">
 									${slot.description}
 								</div>
 							` : ''}
@@ -208,7 +207,7 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 								`}
 							</div>
 						</div>
-						<div class="slot-actions ml-3">
+						<div class="slot-actions">
 							${!isFullyBooked ? `
 								<button class="btn btn-primary btn-sm signup-btn" 
 										data-slot-name="${slot.name}"

@@ -15,7 +15,7 @@ app_include_js = "/assets/france_declic/js/contact_directory.bundle.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/france_declic/css/france_declic.css"
-# web_include_js = "/assets/france_declic/js/france_declic.js"
+web_include_js = "/assets/france_declic/js/event_portal_extended.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "france_declic/public/scss/website"

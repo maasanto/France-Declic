@@ -30,11 +30,6 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 
 	// Override the onEventClick method with real API integration
 	onEventClick(event) {
-		const loadingDialog = frappe.msgprint({
-			title: __("Loading..."),
-			message: __("Fetching available slots..."),
-			indicator: "blue"
-		});
 
 		frappe.call({
 			method: "france_declic.templates.pages.event_slot.get_event_slots",
@@ -42,7 +37,6 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 				event_name: event.event.id 
 			},
 			callback: (r) => {
-				loadingDialog.hide();
 				if (r.message) {
 					this.showEnhancedModal(event, r.message);
 				} else {
@@ -54,7 +48,6 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 				}
 			},
 			error: () => {
-				loadingDialog.hide();
 				frappe.msgprint({
 					title: __("Error"),
 					message: __("Failed to fetch event slots"),
@@ -160,27 +153,24 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 
 		const slotsHtml = slots.map(slot => {
 			const isFullyBooked = slot.is_full || false;
-			const availableSpots = slot.available_spots || 0;
 			
 			return `
 				<div class="event-slot-card border rounded ${isFullyBooked ? 'slot-full' : ''}">
 					<div class="d-flex justify-content-between align-items-start">
 						<div class="slot-info flex-grow-1">
 							<h6 class="slot-title">${slot.slot_title || __("Time Slot")}</h6>
-							<div class="slot-time text-muted">
-								<i class="fa fa-clock"></i>
-								${frappe.datetime.str_to_user(slot.starts_on)} - 
-								${frappe.datetime.str_to_user(slot.ends_on)}
-							</div>
 							${slot.custom_workshop_type ? `
 								<div class="slot-description text-muted">
 									${slot.custom_workshop_type}
 								</div>
 							` : ''}
 							<div class="slot-capacity">
-								<span class="badge ${isFullyBooked ? 'badge-danger' : 'badge-success'}">
-									${availableSpots} ${__("spots remaining")} 
-									(${slot.already_booked}/${slot.available_bookings})
+								<span class="capacity-indicator ${isFullyBooked ? 'capacity-full' : 'capacity-available'}">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+										<circle cx="12" cy="7" r="4"></circle>
+									</svg>
+									${slot.already_booked}/${slot.available_bookings}
 								</span>
 							</div>
 						</div>
@@ -279,17 +269,19 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 		const currentSlot = slots.find(s => s.name === slotName);
 		if (currentSlot) {
 			const slotCard = button.closest('.event-slot-card');
-			const capacityBadge = slotCard.find('.slot-capacity .badge');
-			if (capacityBadge.length) {
+			const capacityIndicator = slotCard.find('.capacity-indicator');
+			if (capacityIndicator.length) {
 				// Increment the booked count
 				const newBooked = currentSlot.already_booked + 1;
 				const newAvailable = currentSlot.available_bookings - newBooked;
 				
-				capacityBadge.text(`${newAvailable} spots remaining (${newBooked}/${currentSlot.available_bookings})`);
+				// Update the text content (keep the SVG and update the count)
+				const svg = capacityIndicator.find('svg').prop('outerHTML');
+				capacityIndicator.html(`${svg} ${newBooked}/${currentSlot.available_bookings}`);
 				
-				// Change badge color if now full
+				// Change indicator style if now full
 				if (newAvailable === 0) {
-					capacityBadge.removeClass('badge-success').addClass('badge-danger');
+					capacityIndicator.removeClass('capacity-available').addClass('capacity-full');
 					slotCard.addClass('slot-full');
 				}
 			}

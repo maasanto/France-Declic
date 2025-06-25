@@ -118,6 +118,31 @@
 	margin-bottom: 0.75rem;
 }
 
+.capacity-indicator {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	background-color: rgba(40, 167, 69, 0.1);
+	color: #28a745;
+	border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.capacity-indicator.capacity-full {
+	background-color: rgba(220, 53, 69, 0.1);
+	color: #dc3545;
+	border-color: rgba(220, 53, 69, 0.2);
+}
+
+.capacity-indicator svg {
+	width: 14px;
+	height: 14px;
+	stroke-width: 2;
+}
+
 .badge {
 	font-size: 0.7rem;
 	padding: 0.25rem 0.4rem;

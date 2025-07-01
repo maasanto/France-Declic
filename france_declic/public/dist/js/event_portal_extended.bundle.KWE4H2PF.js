@@ -131,11 +131,6 @@
 					<div class="d-flex justify-content-between align-items-start">
 						<div class="slot-info flex-grow-1">
 							<h6 class="slot-title">${slot.slot_title || __("Time Slot")}</h6>
-							${slot.custom_workshop_type ? `
-								<div class="slot-description text-muted">
-									${slot.custom_workshop_type}
-								</div>
-							` : ""}
 							<div class="slot-capacity">
 								<span class="capacity-indicator ${isFullyBooked ? "capacity-full" : "capacity-available"}">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
@@ -233,4 +228,4 @@
     }
   };
 })();
-//# sourceMappingURL=event_portal_extended.bundle.JO6TNBB6.js.map
+//# sourceMappingURL=event_portal_extended.bundle.KWE4H2PF.js.map

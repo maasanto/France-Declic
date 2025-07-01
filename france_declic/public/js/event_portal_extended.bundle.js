@@ -154,6 +154,20 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 		const slotsHtml = slots.map(slot => {
 			const isFullyBooked = slot.is_full || false;
 			
+			// Generate user list HTML
+			const userListHtml = slot.registered_users && slot.registered_users.length > 0 ? `
+				<div class="registered-users mt-2">
+					<small class="text-muted">${__("Registered")}:</small>
+					<div class="user-list">
+						${slot.registered_users.map(user => `
+							<div class="user-item">
+								<small><strong>${user.full_name}</strong> (${user.email})</small>
+							</div>
+						`).join('')}
+					</div>
+				</div>
+			` : '';
+			
 			return `
 				<div class="event-slot-card border rounded ${isFullyBooked ? 'slot-full' : ''}">
 					<div class="d-flex justify-content-between align-items-start">
@@ -168,6 +182,7 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 									${slot.already_booked}/${slot.available_bookings}
 								</span>
 							</div>
+							${userListHtml}
 						</div>
 						<div class="slot-actions">
 							${!isFullyBooked ? `

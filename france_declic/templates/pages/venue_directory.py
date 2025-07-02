@@ -21,6 +21,9 @@ def get_context(context):
     # Get all venues with specific fields - no filtering
     venues = frappe.get_all(
         "Booking Venue",
+        filters=[
+            {"enabled": True}
+		],
         fields=[
             "name",
             "label", 

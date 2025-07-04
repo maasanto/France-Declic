@@ -6,11 +6,12 @@
 $(document).ready(function() {
     console.log("Venue directory JS loaded");
     console.log("Found", $('.btn-details').length, "detail buttons");
+    console.log("Found", $('.venue-table tbody tr').length, "venue rows");
     
     // Handle details button clicks
     $('.btn-details').on('click', function(e) {
         e.preventDefault();
-        e.stopPropagation();
+        e.stopPropagation(); // Prevent row click event
         
         console.log("Button clicked!");
         
@@ -18,6 +19,24 @@ $(document).ready(function() {
         console.log("Loading details for venue:", venueName);
         
         loadVenueDetails(venueName);
+    });
+    
+    // Handle row clicks (excluding the details button column)
+    $('.venue-table tbody tr').on('click', function(e) {
+        // Don't trigger if clicking on the details button or its column
+        if ($(e.target).closest('.btn-details, .details-column').length > 0) {
+            return;
+        }
+        
+        e.preventDefault();
+        console.log("Row clicked!");
+        
+        const venueName = $(this).find('.btn-details').data('venue');
+        console.log("Loading details for venue from row click:", venueName);
+        
+        if (venueName) {
+            loadVenueDetails(venueName);
+        }
     });
     
     function loadVenueDetails(venueName) {
@@ -76,7 +95,7 @@ $(document).ready(function() {
                 
                 ${venue.description ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-info-circle text-primary"></i>Procédure à suivre</h6>
+                        <h6><i class="fa fa-info-circle text-primary"></i>${__("Procédure à suivre")}</h6>
                         <div class="description-content">
                             <p>${venue.description}</p>
                         </div>
@@ -85,14 +104,28 @@ $(document).ready(function() {
                 
                 ${venue.full_address ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-map-marker-alt text-primary"></i>Adresse</h6>
+                        <h6><i class="fa fa-map-marker-alt text-primary"></i>${__("Address")}</h6>
                         <p>${venue.full_address}</p>
+                    </div>
+                ` : ''}
+                
+                ${venue.contacts && venue.contacts.length > 0 ? `
+                    <div class="detail-group">
+                        <h6><i class="fa fa-user text-primary"></i>${__("Point of Contacts")}</h6>
+                        ${venue.contacts.map(contact => `
+                            <div class="contact-item">
+                                <div class="contact-name">${contact.name}</div>
+                                ${contact.email ? `<div class="contact-detail"><i class="fa fa-envelope"></i> <a href="mailto:${contact.email}">${contact.email}</a></div>` : ''}
+                                ${contact.phone ? `<div class="contact-detail"><i class="fa fa-phone"></i> <a href="tel:${contact.phone}">${contact.phone}</a></div>` : ''}
+                                ${contact.telegram ? `<div class="contact-detail"><i class="fab fa-telegram"></i> <a href="${contact.telegram}" target="_blank">${contact.telegram}</a></div>` : ''}
+                            </div>
+                        `).join('')}
                     </div>
                 ` : ''}
                 
                 ${venue.custom_telegram_channel ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-at text-primary"></i>Telegram</h6>
+                        <h6><i class="fab fa-telegram text-primary"></i>Canal Telegram</h6>
                         <p><a href="${venue.custom_telegram_channel}" target="_blank" class="telegram-link">${venue.custom_telegram_channel}</a></p>
                     </div>
                 ` : ''}
@@ -136,6 +169,35 @@ $(document).ready(function() {
                 }
                 .venue-details {
                     padding: 10px;
+                }
+                .contact-item {
+                    margin-bottom: 15px;
+                    padding: 12px;
+                    background-color: #f8f9fa;
+                    border-radius: 6px;
+                    border-left: 3px solid #007bff;
+                }
+                .contact-name {
+                    font-weight: 600;
+                    color: #333;
+                    margin-bottom: 6px;
+                }
+                .contact-detail {
+                    margin-bottom: 3px;
+                    color: #6c757d;
+                    font-size: 0.9em;
+                }
+                .contact-detail i {
+                    width: 16px;
+                    margin-right: 6px;
+                    color: #007bff;
+                }
+                .contact-detail a {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+                .contact-detail a:hover {
+                    text-decoration: underline;
                 }
             </style>
         `;

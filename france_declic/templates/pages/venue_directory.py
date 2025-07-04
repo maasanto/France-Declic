@@ -38,7 +38,7 @@ def get_context(context):
             "custom_hosted_workshops",
             "modified"
         ],
-        order_by="modified desc"
+        order_by="modified desc",
     )
     
     # Extract city from address and get contacts separately
@@ -94,10 +94,77 @@ def get_venue_details(venue_name):
             # Fallback to the linked address name if formatting fails
             full_address = venue.published_address
     
+    # Get detailed contact information
+    contacts = []
+    try:
+        # Get contact details from the child table
+        contact_records = frappe.get_all(
+            "Booking Venue Contact",
+            filters={"parent": venue_name},
+            fields=["contact", "idx"],
+            order_by="idx"
+        )
+        
+        for contact_record in contact_records:
+            contact_name = contact_record.get("contact")
+            if contact_name:
+                # Try to get contact details from Contact doctype
+                try:
+                    contact_doc = frappe.get_doc("Contact", contact_name)
+                    contact_info = {
+                        "name": contact_doc.get("first_name", "") + " " + contact_doc.get("last_name", ""),
+                        "email": None,
+                        "phone": None,
+                        "telegram": None
+                    }
+                    
+                    # Get email from contact
+                    if contact_doc.get("email_ids"):
+                        contact_info["email"] = contact_doc.email_ids[0].email_id
+                    
+                    # Get phone from contact
+                    if contact_doc.get("phone_nos"):
+                        contact_info["phone"] = contact_doc.phone_nos[0].phone
+                    
+                    # Get telegram from custom field (if exists)
+                    if hasattr(contact_doc, 'custom_telegram_username') and contact_doc.get("custom_telegram_username"):
+                        telegram_username = contact_doc.custom_telegram_username
+                        # Format telegram URL if it's just a username
+                        if not telegram_username.startswith('http'):
+                            if telegram_username.startswith('@'):
+                                telegram_username = telegram_username[1:]
+                            contact_info["telegram"] = f"https://t.me/{telegram_username}"
+                        else:
+                            contact_info["telegram"] = telegram_username
+                    
+                    contacts.append(contact_info)
+                    
+                except frappe.DoesNotExistError:
+                    # If contact doesn't exist as a Contact document, just use the name
+                    contacts.append({
+                        "name": contact_name,
+                        "email": None,
+                        "phone": None,
+                        "telegram": None
+                    })
+                except Exception as e:
+                    frappe.log_error(f"Error getting contact details for {contact_name}: {str(e)}")
+                    contacts.append({
+                        "name": contact_name,
+                        "email": None,
+                        "phone": None,
+                        "telegram": None
+                    })
+    
+    except Exception as e:
+        frappe.log_error(f"Error getting venue contacts: {str(e)}")
+        contacts = []
+    
     return {
         "name": venue.name,
         "label": venue.get("label") or venue.name,
         "description": venue.get("description"),
         "full_address": full_address,
-        "custom_telegram_channel": venue.get("custom_telegram_channel")
+        "custom_telegram_channel": venue.get("custom_telegram_channel"),
+        "contacts": contacts
     }

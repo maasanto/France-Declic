@@ -66,10 +66,20 @@
   padding: 0.25rem 0.5rem;
 }
 
+.details-column {
+  cursor: auto;
+}
+
 .wheelchair-icon {
   width: 18px;
   height: 18px;
   fill: currentColor;
+}
+
+/* Add visual indication that rows are clickable */
+.venue-table tbody tr:hover .venue-name {
+  color: #1e3a8a;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -89,7 +99,7 @@
 <div class="container-fluid">
   <div class="row mb-3">
     <div class="col-12">
-      <p class="text-muted">{{ _("Browse available venues for your events") }}</p>
+      <p class="text-muted">{{ _("Browse available venues for your events. Click on any row to view details.") }}</p>
     </div>
   </div>
 
@@ -106,7 +116,7 @@
             <th class="d-none d-md-table-cell">{{ _("Capacity") }}</th>
             <th class="d-none d-lg-table-cell">{{ _("Equipment") }}</th>
             <th class="text-center">{{ _("Access") }}</th>
-            <th>{{ _("Details") }}</th>
+            <th class="details-column">{{ _("Details") }}</th>
           </tr>
         </thead>
         <tbody>
@@ -157,7 +167,7 @@
                 {% endif %}
               </td>
               
-              <td>
+              <td class="details-column">
                 <button class="btn btn-outline-primary btn-sm btn-details" 
                         data-venue="{{ venue.name }}">
                   <i class="fa fa-info-circle"></i>

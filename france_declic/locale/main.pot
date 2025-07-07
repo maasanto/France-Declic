@@ -1,4 +1,4 @@
-# French translations for France Declic.
+# Translations template for France Declic.
 # Copyright (C) 2025 Antoine Maas Ingénierie
 # This file is distributed under the same license as the France Declic project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -8,11 +8,9 @@ msgstr ""
 "Project-Id-Version: France Declic VERSION\n"
 "Report-Msgid-Bugs-To: antoine.maas@amingenierie-opensource.fr\n"
 "POT-Creation-Date: 2025-07-07 14:19+0009\n"
-"PO-Revision-Date: 2025-07-07 13:33+0009\n"
+"PO-Revision-Date: 2025-07-07 14:19+0009\n"
 "Last-Translator: antoine.maas@amingenierie-opensource.fr\n"
-"Language: fr\n"
 "Language-Team: antoine.maas@amingenierie-opensource.fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,199 +18,199 @@ msgstr ""
 
 #: templates/pages/venue-directory.html:118
 msgid "Access"
-msgstr "Accès"
+msgstr ""
 
 #: templates/pages/venue-directory.html:164
 msgid "Accessible"
-msgstr "Accessible"
+msgstr ""
 
 #: public/dist/js/venue_directory.bundle.IJXTZGGL.js:79
 #: public/js/venue_directory.bundle.js:107
 msgid "Address"
-msgstr "Adresse"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:217
 #: public/js/event_portal_extended.bundle.js:265
 msgid "An error occurred. Please try again."
-msgstr "Une erreur s'est produite. Veuillez réessayer."
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:192
 #: public/js/event_portal_extended.bundle.js:229
 msgid "Are you sure you want to sign up for '{0}'?"
-msgstr "Êtes-vous sûr de vouloir vous inscrire à '{0}' ?"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:174
 #: public/js/event_portal_extended.bundle.js:205
 msgid "Available Time Slots"
-msgstr "Créneaux horaires disponibles"
+msgstr ""
 
 #: templates/pages/venue-directory.html:102
 msgid "Browse available venues for your events. Click on any row to view details."
-msgstr "Parcourez les lieux disponibles pour vos événements. Cliquez sur une ligne pour voir les détails."
+msgstr ""
 
 #: templates/pages/venue-directory.html:116
 msgid "Capacity"
-msgstr "Capacité"
+msgstr ""
 
 #: templates/pages/venue-directory.html:112
 msgid "City"
-msgstr "Ville"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:139
 #: public/js/contact_directory.bundle.js:167
 msgid "Clear Filters"
-msgstr "Effacer les filtres"
+msgstr ""
 
 #: templates/pages/venue-directory.html:212
 msgid "Close"
-msgstr "Fermer"
+msgstr ""
 
 #: templates/pages/venue-directory.html:115
 msgid "Contact"
-msgstr "Contact"
+msgstr ""
 
 #: templates/pages/contact-directory.html:8
 #: templates/pages/contact-directory.html:12
 msgid "Contact Directory"
-msgstr "Annuaire des contacts"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:270
 #: public/js/contact_directory.bundle.js:315
 msgid "Contacts"
-msgstr "Contacts"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:38
 #: public/js/event_portal_extended.bundle.js:45
 msgid "Could not load event slots"
-msgstr "Impossible de charger les créneaux d'événement"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:99
 #: public/js/event_portal_extended.bundle.js:121
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: templates/pages/venue-directory.html:119
 msgid "Details"
-msgstr "Détails"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:270
 #: public/js/contact_directory.bundle.js:315
 msgid "Directory Stats"
-msgstr "Statistiques du répertoire"
+msgstr ""
 
 #: templates/pages/venue-directory.html:117
 msgid "Equipment"
-msgstr "Équipement"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:37
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:45
 #: public/js/event_portal_extended.bundle.js:44
 #: public/js/event_portal_extended.bundle.js:52
 msgid "Error"
-msgstr "Erreur"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:145
 #: public/js/contact_directory.bundle.js:175
 msgid "Error loading contacts"
-msgstr "Erreur lors du chargement des contacts"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:118
 #: public/js/event_portal_extended.bundle.js:144
 msgid "Event Slots"
-msgstr "Créneaux d'événement"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:46
 #: public/js/event_portal_extended.bundle.js:53
 #: templates/pages/event_slot.py:52
 msgid "Failed to fetch event slots"
-msgstr "Échec de la récupération des créneaux d'événement"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:209
 #: public/js/event_portal_extended.bundle.js:255
 msgid "Failed to sign up. Please try again."
-msgstr "Échec de l'inscription. Veuillez réessayer."
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:71
 #: public/js/contact_directory.bundle.js:83
 msgid "Filter by workshop type..."
-msgstr "Filtrer par type d'atelier..."
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:166
 #: public/js/event_portal_extended.bundle.js:196
 msgid "Full"
-msgstr "Complet"
+msgstr ""
 
 #: public/dist/js/venue_directory.bundle.IJXTZGGL.js:70
 #: public/js/venue_directory.bundle.js:98
 msgid "How to Book"
-msgstr "Comment Réserver"
+msgstr ""
 
 #: templates/pages/venue-directory.html:214
 msgid "Join Telegram"
-msgstr "Rejoindre Telegram"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:101
 #: public/js/contact_directory.bundle.js:120
 msgid "Loading contacts..."
-msgstr "Chargement des contacts..."
+msgstr ""
 
 #: templates/pages/venue-directory.html:208
 msgid "Loading venue details..."
-msgstr "Chargement des détails du lieu..."
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:101
 #: public/js/contact_directory.bundle.js:120
 #: templates/pages/venue-directory.html:206
 msgid "Loading..."
-msgstr "Chargement..."
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:133
 #: public/js/contact_directory.bundle.js:159
 msgid "No contacts found"
-msgstr "Aucun contact trouvé"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:133
 #: public/js/contact_directory.bundle.js:158
 msgid "No contacts found matching your criteria"
-msgstr "Aucun contact trouvé correspondant à vos critères"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:99
 #: public/js/event_portal_extended.bundle.js:121
 msgid "No description available"
-msgstr "Aucune description disponible"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:118
 #: public/js/event_portal_extended.bundle.js:144
 msgid "No time slots available for this event"
-msgstr "Aucun créneau horaire disponible pour cet événement"
+msgstr ""
 
 #: templates/pages/venue-directory.html:187
 msgid "No venues found"
-msgstr "Aucun lieu trouvé"
+msgstr ""
 
 #: templates/pages/venue_directory.py:15
 msgid "Please login to access this page"
-msgstr "Veuillez vous connecter pour accéder à cette page"
+msgstr ""
 
 #: public/dist/js/venue_directory.bundle.IJXTZGGL.js:86
 #: public/js/venue_directory.bundle.js:114
 msgid "Point of Contacts"
-msgstr "Référent.e.s"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:129
 #: public/js/event_portal_extended.bundle.js:158
 msgid "Registered"
-msgstr "Inscrit"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:32
 #: public/js/contact_directory.bundle.js:37
 msgid "Search contacts (name, email, phone, city, etc.)..."
-msgstr "Rechercher des contacts (nom, email, téléphone, ville, etc.)..."
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:64
 #: public/js/event_portal_extended.bundle.js:74
 msgid "See Full Details"
-msgstr "Voir tous les détails"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:162
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:212
@@ -221,60 +219,60 @@ msgstr "Voir tous les détails"
 #: public/js/event_portal_extended.bundle.js:260
 #: public/js/event_portal_extended.bundle.js:270
 msgid "Sign Up"
-msgstr "S'inscrire"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:205
 #: public/js/event_portal_extended.bundle.js:249
 msgid "Signed Up"
-msgstr "Inscrit"
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:193
 #: public/js/event_portal_extended.bundle.js:232
 msgid "Signing up..."
-msgstr "Inscription en cours..."
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:202
 #: public/js/event_portal_extended.bundle.js:243
 msgid "Successfully signed up for {0}!"
-msgstr "Inscription réussie pour {0} !"
+msgstr ""
 
 #: templates/pages/venue-directory.html:188
 msgid "There are currently no venues available."
-msgstr "Il n'y a actuellement aucun lieu disponible."
+msgstr ""
 
 #: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:141
 #: public/js/event_portal_extended.bundle.js:171
 msgid "Time Slot"
-msgstr "Créneau horaire"
+msgstr ""
 
 #: templates/pages/venue-directory.html:113
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 #: templates/pages/venue-directory.html:198
 msgid "Venue Details"
-msgstr "Détails du lieu"
+msgstr ""
 
 #: templates/pages/venue-directory.html:4
 #: templates/pages/venue-directory.html:13
 #: templates/pages/venue_directory.py:74
 msgid "Venue Directory"
-msgstr "Annuaire des lieux"
+msgstr ""
 
 #: templates/pages/venue-directory.html:111
 msgid "Venue Name"
-msgstr "Nom du lieu"
+msgstr ""
 
 #: public/dist/js/contact_directory.bundle.6SFGTGQL.js:270
 #: public/js/contact_directory.bundle.js:315
 msgid "Workshop Offered"
-msgstr "Ateliers Proposés"
+msgstr ""
 
 #: templates/pages/venue-directory.html:114
 msgid "Workshops"
-msgstr "Ateliers"
+msgstr ""
 
 #: templates/pages/contact_directory.py:14
 msgid "You need to be logged in to access this page"
-msgstr "Vous devez être connecté pour accéder à cette page"
+msgstr ""
 

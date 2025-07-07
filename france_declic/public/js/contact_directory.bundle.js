@@ -323,7 +323,7 @@ class ContactDirectorySidebar {
 						</div>
 						<div class="col-6">
 							<div class="h4 mb-0">${this.stats.total_workshops || 0}</div>
-							<small class="text-muted">${__('Workshop Records')}</small>
+							<small class="text-muted">${__('Workshop Offered')}</small>
 						</div>
 					</div>
 				</div>

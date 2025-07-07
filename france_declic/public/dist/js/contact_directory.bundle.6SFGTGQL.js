@@ -278,7 +278,7 @@
 						</div>
 						<div class="col-6">
 							<div class="h4 mb-0">${this.stats.total_workshops || 0}</div>
-							<small class="text-muted">${__("Workshop Records")}</small>
+							<small class="text-muted">${__("Workshop Offered")}</small>
 						</div>
 					</div>
 				</div>
@@ -293,4 +293,4 @@
     new ContactDirectorySidebar(document.getElementById("contact-directory-sidebar"));
   });
 })();
-//# sourceMappingURL=contact_directory.bundle.DRWKXI6R.js.map
+//# sourceMappingURL=contact_directory.bundle.6SFGTGQL.js.map

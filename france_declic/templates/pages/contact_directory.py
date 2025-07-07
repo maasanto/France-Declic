@@ -90,7 +90,15 @@ def get_contact_stats():
 	total_contacts = frappe.db.count("Contact")
 	total_workshops = frappe.db.count("Hosted Workshop")
 	
+	# Get distinct workshop types hosted by contacts
+	distinct_workshops = frappe.get_all(
+		"Hosted Workshop",
+		fields=["workshop"],
+		group_by="workshop"
+	)
+	
 	return {
 		"total_contacts": total_contacts,
-		"total_workshops": total_workshops
+		"total_workshops": total_workshops,
+		"distinct_workshops_hosted": len(distinct_workshops)
 	}

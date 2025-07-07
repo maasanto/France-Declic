@@ -1,0 +1,279 @@
+# French translations for France Declic.
+# Copyright (C) 2025 Antoine Maas Ingénierie
+# This file is distributed under the same license as the France Declic project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: France Declic VERSION\n"
+"Report-Msgid-Bugs-To: antoine.maas@amingenierie-opensource.fr\n"
+"POT-Creation-Date: 2025-07-07 13:33+0009\n"
+"PO-Revision-Date: 2025-07-07 13:33+0009\n"
+"Last-Translator: antoine.maas@amingenierie-opensource.fr\n"
+"Language: fr\n"
+"Language-Team: antoine.maas@amingenierie-opensource.fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: templates/pages/venue-directory.html:118
+msgid "Access"
+msgstr "Accès"
+
+#: templates/pages/venue-directory.html:164
+msgid "Accessible"
+msgstr "Accessible"
+
+#: public/dist/js/venue_directory.bundle.7ZC57Z5Q.js:79
+#: public/js/venue_directory.bundle.js:107
+msgid "Address"
+msgstr "Adresse"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:217
+#: public/js/event_portal_extended.bundle.js:265
+msgid "An error occurred. Please try again."
+msgstr "Une erreur s'est produite. Veuillez réessayer."
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:192
+#: public/js/event_portal_extended.bundle.js:229
+msgid "Are you sure you want to sign up for '{0}'?"
+msgstr "Êtes-vous sûr de vouloir vous inscrire à '{0}' ?"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:174
+#: public/js/event_portal_extended.bundle.js:205
+msgid "Available Time Slots"
+msgstr "Créneaux horaires disponibles"
+
+#: templates/pages/venue-directory.html:102
+msgid "Browse available venues for your events. Click on any row to view details."
+msgstr "Parcourez les lieux disponibles pour vos événements. Cliquez sur une ligne pour voir les détails."
+
+#: templates/pages/venue-directory.html:116
+msgid "Capacity"
+msgstr "Capacité"
+
+#: templates/pages/venue-directory.html:112
+msgid "City"
+msgstr "Ville"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:139
+#: public/js/contact_directory.bundle.js:167
+msgid "Clear Filters"
+msgstr "Effacer les filtres"
+
+#: templates/pages/venue-directory.html:212
+msgid "Close"
+msgstr "Fermer"
+
+#: templates/pages/venue-directory.html:115
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/pages/contact-directory.html:8
+#: templates/pages/contact-directory.html:12
+msgid "Contact Directory"
+msgstr "Annuaire des contacts"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:270
+#: public/js/contact_directory.bundle.js:315
+msgid "Contacts"
+msgstr "Contacts"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:38
+#: public/js/event_portal_extended.bundle.js:45
+msgid "Could not load event slots"
+msgstr "Impossible de charger les créneaux d'événement"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:99
+#: public/js/event_portal_extended.bundle.js:121
+msgid "Description"
+msgstr "Description"
+
+#: templates/pages/venue-directory.html:119
+msgid "Details"
+msgstr "Détails"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:270
+#: public/js/contact_directory.bundle.js:315
+msgid "Directory Stats"
+msgstr "Statistiques du répertoire"
+
+#: templates/pages/venue-directory.html:117
+msgid "Equipment"
+msgstr "Équipement"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:37
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:45
+#: public/js/event_portal_extended.bundle.js:44
+#: public/js/event_portal_extended.bundle.js:52
+msgid "Error"
+msgstr "Erreur"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:145
+#: public/js/contact_directory.bundle.js:175
+msgid "Error loading contacts"
+msgstr "Erreur lors du chargement des contacts"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:118
+#: public/js/event_portal_extended.bundle.js:144
+msgid "Event Slots"
+msgstr "Créneaux d'événement"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:46
+#: public/js/event_portal_extended.bundle.js:53
+#: templates/pages/event_slot.py:52
+msgid "Failed to fetch event slots"
+msgstr "Échec de la récupération des créneaux d'événement"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:209
+#: public/js/event_portal_extended.bundle.js:255
+msgid "Failed to sign up. Please try again."
+msgstr "Échec de l'inscription. Veuillez réessayer."
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:71
+#: public/js/contact_directory.bundle.js:83
+msgid "Filter by workshop type..."
+msgstr "Filtrer par type d'atelier..."
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:166
+#: public/js/event_portal_extended.bundle.js:196
+msgid "Full"
+msgstr "Complet"
+
+#: public/dist/js/venue_directory.bundle.7ZC57Z5Q.js:70
+#: public/js/venue_directory.bundle.js:98
+msgid "How to Book"
+msgstr "Comment Réserver"
+
+#: templates/pages/venue-directory.html:214
+msgid "Join Telegram"
+msgstr "Rejoindre Telegram"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:101
+#: public/js/contact_directory.bundle.js:120
+msgid "Loading contacts..."
+msgstr "Chargement des contacts..."
+
+#: templates/pages/venue-directory.html:208
+msgid "Loading venue details..."
+msgstr "Chargement des détails du lieu..."
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:101
+#: public/js/contact_directory.bundle.js:120
+#: templates/pages/venue-directory.html:206
+msgid "Loading..."
+msgstr "Chargement..."
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:133
+#: public/js/contact_directory.bundle.js:159
+msgid "No contacts found"
+msgstr "Aucun contact trouvé"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:133
+#: public/js/contact_directory.bundle.js:158
+msgid "No contacts found matching your criteria"
+msgstr "Aucun contact trouvé correspondant à vos critères"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:99
+#: public/js/event_portal_extended.bundle.js:121
+msgid "No description available"
+msgstr "Aucune description disponible"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:118
+#: public/js/event_portal_extended.bundle.js:144
+msgid "No time slots available for this event"
+msgstr "Aucun créneau horaire disponible pour cet événement"
+
+#: templates/pages/venue-directory.html:187
+msgid "No venues found"
+msgstr "Aucun lieu trouvé"
+
+#: templates/pages/venue_directory.py:15
+msgid "Please login to access this page"
+msgstr "Veuillez vous connecter pour accéder à cette page"
+
+#: public/dist/js/venue_directory.bundle.7ZC57Z5Q.js:86
+#: public/js/venue_directory.bundle.js:114
+msgid "Point of Contacts"
+msgstr "Référent.e.s"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:129
+#: public/js/event_portal_extended.bundle.js:158
+msgid "Registered"
+msgstr "Inscrit"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:32
+#: public/js/contact_directory.bundle.js:37
+msgid "Search contacts (name, email, phone, city, etc.)..."
+msgstr "Rechercher des contacts (nom, email, téléphone, ville, etc.)..."
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:64
+#: public/js/event_portal_extended.bundle.js:74
+msgid "See Full Details"
+msgstr "Voir tous les détails"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:162
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:212
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:220
+#: public/js/event_portal_extended.bundle.js:192
+#: public/js/event_portal_extended.bundle.js:260
+#: public/js/event_portal_extended.bundle.js:270
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:205
+#: public/js/event_portal_extended.bundle.js:249
+msgid "Signed Up"
+msgstr "Inscrit"
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:193
+#: public/js/event_portal_extended.bundle.js:232
+msgid "Signing up..."
+msgstr "Inscription en cours..."
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:202
+#: public/js/event_portal_extended.bundle.js:243
+msgid "Successfully signed up for {0}!"
+msgstr "Inscription réussie pour {0} !"
+
+#: templates/pages/venue-directory.html:188
+msgid "There are currently no venues available."
+msgstr "Il n'y a actuellement aucun lieu disponible."
+
+#: public/dist/js/event_portal_extended.bundle.LGZIRHFZ.js:141
+#: public/js/event_portal_extended.bundle.js:171
+msgid "Time Slot"
+msgstr "Créneau horaire"
+
+#: templates/pages/venue-directory.html:113
+msgid "Type"
+msgstr "Type"
+
+#: templates/pages/venue-directory.html:198
+msgid "Venue Details"
+msgstr "Détails du lieu"
+
+#: templates/pages/venue-directory.html:4
+#: templates/pages/venue-directory.html:13
+#: templates/pages/venue_directory.py:74
+msgid "Venue Directory"
+msgstr "Annuaire des lieux"
+
+#: templates/pages/venue-directory.html:111
+msgid "Venue Name"
+msgstr "Nom du lieu"
+
+#: public/dist/js/contact_directory.bundle.DRWKXI6R.js:270
+#: public/js/contact_directory.bundle.js:315
+msgid "Workshop Records"
+msgstr "Registres d'ateliers"
+
+#: templates/pages/venue-directory.html:114
+msgid "Workshops"
+msgstr "Ateliers"
+
+#: templates/pages/contact_directory.py:14
+msgid "You need to be logged in to access this page"
+msgstr "Vous devez être connecté pour accéder à cette page"

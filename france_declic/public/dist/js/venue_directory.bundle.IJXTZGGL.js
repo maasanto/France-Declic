@@ -67,7 +67,7 @@
                 
                 ${venue.description ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-info-circle text-primary"></i>${__("Proc\xE9dure \xE0 suivre")}</h6>
+                        <h6><i class="fa fa-info-circle text-primary"></i>${__("How to Book")}</h6>
                         <div class="description-content">
                             <p>${venue.description}</p>
                         </div>
@@ -185,4 +185,4 @@
     }
   });
 })();
-//# sourceMappingURL=venue_directory.bundle.7ZC57Z5Q.js.map
+//# sourceMappingURL=venue_directory.bundle.IJXTZGGL.js.map

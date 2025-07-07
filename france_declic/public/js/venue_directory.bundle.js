@@ -95,7 +95,7 @@ $(document).ready(function() {
                 
                 ${venue.description ? `
                     <div class="detail-group">
-                        <h6><i class="fa fa-info-circle text-primary"></i>${__("Procédure à suivre")}</h6>
+                        <h6><i class="fa fa-info-circle text-primary"></i>${__("How to Book")}</h6>
                         <div class="description-content">
                             <p>${venue.description}</p>
                         </div>

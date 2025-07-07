@@ -240,5 +240,75 @@
       }
     }
   };
+  frappe.ready(function() {
+    $(document).on("click", ".web-list-item", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const eventId = $(this).attr("id");
+      const eventTitle = $(this).find(".col-12").first().text().trim();
+      if (eventId) {
+        openEventModalFromList(eventId, eventTitle);
+      }
+    });
+    const style = document.createElement("style");
+    style.textContent = `
+		.web-list-item {
+			cursor: pointer !important;
+			transition: background-color 0.2s ease;
+		}
+		.web-list-item:hover {
+			background-color: rgba(0, 123, 255, 0.05) !important;
+			border-radius: 0.25rem;
+		}
+		.web-list-item a {
+			pointer-events: none;
+		}
+	`;
+    document.head.appendChild(style);
+  });
+  function openEventModalFromList(eventId, eventTitle) {
+    frappe.call({
+      method: "frappe.client.get",
+      args: {
+        doctype: "Event",
+        name: eventId
+      },
+      callback: (r) => {
+        if (r.message) {
+          const eventDoc = r.message;
+          const mockEvent = {
+            event: {
+              id: eventDoc.name,
+              title: eventDoc.subject || eventTitle,
+              start: eventDoc.starts_on,
+              end: eventDoc.ends_on,
+              extendedProps: {
+                subject: eventDoc.subject,
+                description: eventDoc.description,
+                route: eventDoc.route,
+                image: eventDoc.image,
+                location: eventDoc.location,
+                workshop_type: eventDoc.custom_workshop_type
+              }
+            }
+          };
+          frappe.call({
+            method: "france_declic.templates.pages.event_slot.get_event_slots",
+            args: {
+              event_name: eventId
+            },
+            callback: (slotsResponse) => {
+              if (slotsResponse.message) {
+                const tempPortal = new frappe.events.EventsPortalView({
+                  wrapper: document.createElement("div")
+                });
+                tempPortal.showEnhancedModal(mockEvent, slotsResponse.message);
+              }
+            }
+          });
+        }
+      }
+    });
+  }
 })();
-//# sourceMappingURL=event_portal_extended.bundle.LGZIRHFZ.js.map
+//# sourceMappingURL=event_portal_extended.bundle.6XWP6J6Y.js.map

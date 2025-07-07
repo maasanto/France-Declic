@@ -298,3 +298,89 @@ frappe.events.EventsPortalView = class EventsPortalView extends frappe.ui.BaseWe
 		}
 	}
 };
+
+// Additional functionality for list item clicks
+frappe.ready(function() {
+	// Bind list item clicks to open the same modal
+	$(document).on('click', '.web-list-item', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		
+		const eventId = $(this).attr('id');
+		const eventTitle = $(this).find('.col-12').first().text().trim();
+		
+		if (eventId) {
+			openEventModalFromList(eventId, eventTitle);
+		}
+	});
+	
+	// Add hover styling for list items
+	const style = document.createElement('style');
+	style.textContent = `
+		.web-list-item {
+			cursor: pointer !important;
+			transition: background-color 0.2s ease;
+		}
+		.web-list-item:hover {
+			background-color: rgba(0, 123, 255, 0.05) !important;
+			border-radius: 0.25rem;
+		}
+		.web-list-item a {
+			pointer-events: none;
+		}
+	`;
+	document.head.appendChild(style);
+});
+
+// Function to open the same modal from list items
+function openEventModalFromList(eventId, eventTitle) {
+	frappe.call({
+		method: "frappe.client.get",
+		args: {
+			doctype: "Event",
+			name: eventId
+		},
+		callback: (r) => {
+			if (r.message) {
+				const eventDoc = r.message;
+				
+				// Create mock event object that matches calendar event structure
+				const mockEvent = {
+					event: {
+						id: eventDoc.name,
+						title: eventDoc.subject || eventTitle,
+						start: eventDoc.starts_on,
+						end: eventDoc.ends_on,
+						extendedProps: {
+							subject: eventDoc.subject,
+							description: eventDoc.description,
+							route: eventDoc.route,
+							image: eventDoc.image,
+							location: eventDoc.location,
+							workshop_type: eventDoc.custom_workshop_type
+						}
+					}
+				};
+				
+				// Get slots and use the existing modal method
+				frappe.call({
+					method: "france_declic.templates.pages.event_slot.get_event_slots",
+					args: { 
+						event_name: eventId
+					},
+					callback: (slotsResponse) => {
+						if (slotsResponse.message) {
+							// Create a temporary instance to access the modal methods
+							const tempPortal = new frappe.events.EventsPortalView({
+								wrapper: document.createElement('div')
+							});
+							
+							// Use the existing showEnhancedModal method
+							tempPortal.showEnhancedModal(mockEvent, slotsResponse.message);
+						}
+					}
+				});
+			}
+		}
+	});
+}
